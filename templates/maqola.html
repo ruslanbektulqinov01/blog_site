@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {%load static%}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static "icon/icon.ico"%}" type="image/x-icon" title="your logo">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <link rel="stylesheet" href="{% static "css/maqola.css" %}"/>
+    
+    <title>News | Main page</title>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <a href="http://127.0.0.1:8000/">
+                    <img src="{% static "img/logo.png" %}" alt="Your logo here">
+                </a>
+            </div>
+            <ul class="links">
+                <li>
+                    <a href="#">
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        Contact
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        About us
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        Help
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        Others
+                    </a>
+                </li>
+            </ul>
+            <ul class="links1">
+                <li>
+                    <a href="/login/">
+                        Login
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        Sign Up
+                    </a>
+                </li>
+            </ul>
+            <div class="toggle_btn">
+                <i class='bx bx-menu'></i>
+            </div>
+        </div>
+        <div class="dropDown_menu">
+            <ul class="links">
+                <li>
+                    <a href="#">
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        Contact
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        About us
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        Help
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        Others
+                    </a>
+                </li>
+                <li>
+                    <a href="/login/">
+                        Login
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        Sign Up
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </header>
+{% for article in maqolalar %}
+    <div class="main">
+        <div>
+            <div class="news">
+                <div class="news_img">
+                    <img src="{{ article.image.url }}" alt="The picture have not put on yet.">
+                </div>
+                <div class="news_title">
+                    <div class="news_theme">
+                        <h1>{{ article.title }}</h1>
+                    </div>
+                    <div class="news_text" id="overflow">
+                        <p>{{ article.description }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mualliflik">
+            <div class="watches">
+                <p>watch </p> <br>
+                <p>Created at: {{ article.created_at }}</p>
+            </div>
+            <p class="author">created by {{ article.author }}</p>
+        </div>
+    </div>
+{% endfor %}
+<div class="rooter">
+    <div class="contactUs">
+        <div class="title">
+            <h2>
+                About Us
+            </h2>
+        </div>
+        <div class="box">
+            <!-- Form -->
+            <div class="contact form">
+                <h3>Send me a message</h3>
+                <form action="">
+                    <div class="formBox">
+                        <div class="row50">
+                            <div class="inputBox">
+                                <span>First Name</span>
+                                <input type="text" placeholder="Jonh" required>
+                            </div>
+                            <div class="inputBox">
+                                <span>Last Name</span>
+                                <input type="text" placeholder="Smith" required>
+                            </div>
+                        </div>
+
+                        <div class="row50">
+                            <div class="inputBox">
+                                <span>E-mail</span>
+                                <input type="email" placeholder="mail@example.com" required>
+                            </div>
+
+                            <div class="inputBox">
+                                <span>Phone numbere</span>
+                                <input type="text" placeholder="+998 99 999 88 77">
+                            </div>
+                        </div>
+
+                        <div class="row100">
+                            <div class="inputBox">
+                                <span>Massage</span>
+                                <textarea name="" id="" cols="30" rows="10"
+                                          placeholder="Write your massage here...."></textarea>
+                            </div>
+                        </div>
+
+                        <div class="row100">
+                            <div class="inputBox">
+                                <input type="submit" value="Jo'natish">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- info Box -->
+            <div class="contact info">
+                <h3>Contact Info</h3>
+                <div class="infoBox">
+                    <div>
+                        <span><i class='bx bxs-location-plus'></i></span>
+                        <p>Cannaught Palace, Tashkent <br> Uzbekistan</p>
+                    </div>
+                    <div>
+                        <span><i class='bx bxs-envelope'></i></span>
+                        <a href="mailto:loremipsum@gmail.com">loremipsum@gmail.com</a>
+                    </div>
+                    <div>
+                        <span><i class='bx bxs-phone'></i></span>
+                        <a href="tel:+998987654321">+998987654321</a>
+                    </div>
+                    <ul class="sci">
+                        <li><a href="#"><i class='bx bxl-facebook-circle'></i></a></li>
+                        <li><a href="#"><i class='bx bxl-twitter'></i></a></li>
+                        <li><a href="#"><i class='bx bxl-instagram'></i></a></li>
+                        <li><a href="#"><i class='bx bxl-telegram'></i></a></li>
+                        <li><a href="#"><i class='bx bxl-linkedin'></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- map -->
+            <div class="contact map">
+                <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6000.875541154751!2d69.21590073905114!3d41.23402117565398!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae6183ea313917%3A0xdc59607ad734d20c!2sPDP%20Universiteti!5e0!3m2!1suz!2s!4v1705006831150!5m2!1suz!2s"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% load static %} 
+<script src="{% static 'JavaScript/maqola.js' %}"></script> 
+
+</body>
+</html>
